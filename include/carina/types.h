@@ -57,8 +57,6 @@ using MyGlib::Game::Coroutine;
 using MyGlib::dprintln;
 using MyGlib::dprint;
 
-using Mylib::Memory::make_unique;
-
 // ---------------------------------------------------
 
 } // end namespace Game

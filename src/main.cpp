@@ -1,8 +1,11 @@
 #include <my-game-lib/my-game-lib.h>
+#include <my-game-lib/game/game.h>
+#include <my-game-lib/game/components-2d.h>
 #include <my-game-lib/debug.h>
 
 #include <carina/types.h>
 #include <carina/globals.h>
+#include <carina/lib.h>
 
 
 // ---------------------------------------------------
@@ -14,8 +17,10 @@ namespace Game
 
 int main (int argc, char **argv)
 {
-	Mylib::Memory::DefaultManager memory_manager;
-	unique_ptr<Entity> entity = make_unique<Entity>(memory_manager, 0);
+	unique_ptr<Entity> entity = make_unique<Entity>(0);
+	unique_ptr<GraphicsRect2D> rect = make_unique<GraphicsRect2D>(entity.get(), entity.get(), Point(0.0f, 0.0f), Vector(1.0f, 1.0f), Colors::red);
+
+	entity->add_child(std::move(rect));
 
 	constexpr float target_dt = 1.0f / 60.0f;
 
