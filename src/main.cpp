@@ -6,6 +6,7 @@
 #include <carina/types.h>
 #include <carina/globals.h>
 #include <carina/lib.h>
+#include <carina/world.h>
 
 
 // ---------------------------------------------------
@@ -15,26 +16,24 @@ namespace Game
 
 // ---------------------------------------------------
 
-int main (int argc, char **argv)
+void main (int argc, char **argv)
 {
-	unique_ptr<Entity> entity = make_unique<Entity>(0);
-	unique_ptr<GraphicsRect2D> rect = make_unique<GraphicsRect2D>(entity.get(), entity.get(), Point(0.0f, 0.0f), Vector(1.0f, 1.0f), Colors::red);
-
-	entity->add_child(std::move(rect));
-
 	constexpr float target_dt = 1.0f / 60.0f;
 
 	Main *game = Main::load({
 		.window_name = "Carina Project",
-		.window_width_px = 1920,
-		.window_height_px = 1080,
+		.window_width_px = 1920 / 2,
+		.window_height_px = 1080 / 2,
 		.fullscreen = false,
 		.target_dt = target_dt,
 		.max_dt = 1.0f / 10.0f,
 		.sleep_to_save_cpu = true,
 		.sleep_threshold = target_dt * 0.9f,
 		.busy_wait_to_ensure_fps = true
-	}, entity.get());
+	});
+
+	unique_ptr<World> world = make_unique<World>();
+	game->set_scene(world.get());
 	
 	game->run();
 
@@ -50,7 +49,7 @@ int main (int argc, char **argv)
 int main (int argc, char **argv)
 {
 	try {
-		return Game::main(argc, argv);
+		Game::main(argc, argv);
 	}
 	catch (const std::exception& e) {
 		Game::dprintln("Something bad happened!", '\n', e.what());

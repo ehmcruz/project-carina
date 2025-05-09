@@ -33,7 +33,7 @@ MYLIB_OBJS = ext/memory-pool.o
 
 SRCS := $(wildcard src/*.cpp)
 
-HEADERS := $(wildcard include/aurora/*.h) $(wildcard $(MYLIB)/include/my-lib/*.h) $(wildcard $(MYGLIB)/include/my-game-lib/*.h)
+HEADERS := $(wildcard include/carina/*.h) $(wildcard $(MYLIB)/include/my-lib/*.h) $(wildcard $(MYGLIB)/include/my-game-lib/*.h) $(wildcard $(MYGLIB)/include/my-game-lib/game/*.h)
 
 SRCS += $(wildcard $(MYGLIB)/src/*.cpp)
 

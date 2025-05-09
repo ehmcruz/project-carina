@@ -23,7 +23,7 @@ using MyGlib::Game::random_generator;
 using MyGlib::Game::timer;
 using MyGlib::Game::interpolation_manager;
 
-Mylib::Memory::DefaultManager memory_manager;
+inline Mylib::Memory::DefaultManager memory_manager;
 
 // ---------------------------------------------------
 
