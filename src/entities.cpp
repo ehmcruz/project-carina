@@ -17,9 +17,9 @@ namespace Game
 // ---------------------------------------------------
 
 Player::Player (World *world_, const Point& position_)
-	: Character(world_, 0, position_, Vector::zero())
+	: Character(position_, 0, Vector::zero())
 {
-	unique_ptr<Rect2DRenderer> rect = make_unique<Rect2DRenderer>(this, position_, Vector(1.0f, 1.0f), Colors::green);
+	unique_ptr<Rect2DRenderer> rect = make_unique<Rect2DRenderer>(Point(0, 0), Vector(1.0f, 1.0f), Colors::green);
 	this->add_child(std::move(rect));
 }
 

@@ -19,7 +19,7 @@ namespace Game
 World::World ()
 	: Scene2D(0)
 {
-	unique_ptr<Rect2DRenderer> rect = make_unique<Rect2DRenderer>(this, Point(5.0f, 5.0f), Vector(1.0f, 1.0f), Colors::red);
+	unique_ptr<Rect2DRenderer> rect = make_unique<Rect2DRenderer>(Point(5.0f, 5.0f), Vector(1.0f, 1.0f), Colors::red);
 	this->add_child(std::move(rect));
 
 	unique_ptr<Player> player = make_unique<Player>(this, Point(7.0f, 7.0f));
@@ -28,11 +28,11 @@ World::World ()
 
 // ---------------------------------------------------
 
-void World::setup_render ()
+MyGlib::Graphics::RenderArgs2D World::setup_render_args ()
 {
 	const Vector ws = renderer->get_normalized_window_size();
 
-	renderer->setup_render_2D( MyGlib::Graphics::RenderArgs2D {
+	return MyGlib::Graphics::RenderArgs2D {
 		.clip_init_norm = Vector(0, 0),
 		.clip_end_norm = Vector(ws.x, ws.y),
 		.world_init = Vector(0, 0),
@@ -40,7 +40,7 @@ void World::setup_render ()
 		.force_camera_inside_world = true,
 		.world_camera_focus = Vector(5, 5),
 		.world_screen_width = 10
-		} );
+		};
 }
 
 // ---------------------------------------------------

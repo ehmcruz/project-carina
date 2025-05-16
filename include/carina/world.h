@@ -23,7 +23,7 @@ protected:
 
 public:
 	World ();
-	void setup_render () override final;
+	MyGlib::Graphics::RenderArgs2D setup_render_args () override final;
 };
 
 // ---------------------------------------------------

@@ -26,6 +26,17 @@ ifdef MYGLIB_TARGET_LINUX
 	LDFLAGS += -lGL -lGLEW
 endif
 
+ifdef MYGLIB_TARGET_WINDOWS
+	CPPFLAGS +=
+	LDFLAGS += -lm
+
+	CPPFLAGS += -DMYGLIB_SUPPORT_SDL=1 `pkg-config --cflags sdl2 SDL2_mixer SDL2_image`
+	LDFLAGS += `pkg-config --libs sdl2 SDL2_mixer SDL2_image`
+
+	CPPFLAGS += -DMYGLIB_SUPPORT_OPENGL=1
+	LDFLAGS += -lglew32 -lopengl32
+endif
+
 # ----------------------------------
 
 # need to add a rule for each .o/.cpp at the bottom
