@@ -7,6 +7,7 @@
 #include <carina/globals.h>
 #include <carina/lib.h>
 #include <carina/world.h>
+#include <carina/graphics.h>
 
 
 // ---------------------------------------------------
@@ -31,6 +32,8 @@ void main (int argc, char **argv)
 		.sleep_threshold = target_dt * 0.9f,
 		.busy_wait_to_ensure_fps = true
 	});
+
+	load_graphics();
 
 	unique_ptr<World> world = make_unique<World>();
 	game->set_scene(world.get());

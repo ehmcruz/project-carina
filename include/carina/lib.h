@@ -11,11 +11,7 @@ namespace Game
 
 // ---------------------------------------------------
 
-template <typename T, typename... Types>
-[[nodiscard]] unique_ptr<T> make_unique (Types&&... vars)
-{
-	return Mylib::Memory::make_unique<T>(memory_manager, std::forward<Types>(vars)...);
-}
+using MyGlib::Game::make_unique;
 
 // ---------------------------------------------------
 

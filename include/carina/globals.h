@@ -19,11 +19,10 @@ using MyGlib::Game::game_lib;
 using MyGlib::Game::event_manager;
 using MyGlib::Game::audio_manager;
 using MyGlib::Game::renderer;
+using MyGlib::Game::memory_manager;
 using MyGlib::Game::random_generator;
 using MyGlib::Game::timer;
 using MyGlib::Game::interpolation_manager;
-
-inline Mylib::Memory::DefaultManager memory_manager;
 
 // ---------------------------------------------------
 
