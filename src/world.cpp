@@ -20,10 +20,11 @@ namespace Game
 World::World ()
 	: Scene2D(0)
 {
-	auto rect = make_unique<Rect2DRenderer>(Point(5.0f, 5.0f), Vector(1.0f, 1.0f), Colors::red);
+	auto rect = make_unique<Rect2DRenderer>(Vector(1.0f, 1.0f), Colors::red);
+	rect->set_translation(5.0f, 5.0f);
 	this->add_child(std::move(rect));
 
-	auto tile_map = make_unique<TileMap>(Vector(0, 0), 0, 3, 3, Vector(1, 1));
+	auto tile_map = make_unique<TileMap>(0, 3, 3, Vector(1, 1));
 	tile_map->set(0, 0, Texture::tree_00);
 	tile_map->set(0, 1, Texture::tree_00);
 	tile_map->set(1, 0, Texture::tree_00);
