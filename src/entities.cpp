@@ -21,6 +21,7 @@ Player::Player (World *world_, const Point& position_)
 {
 	this->set_translation(position_);
 	unique_ptr<Rect2DRenderer> rect = make_unique<Rect2DRenderer>(Vector(1.0f, 1.0f), Colors::green);
+	rect->set_angular_velocity(Mylib::Math::degrees_to_radians(90.0f));
 	this->add_child(std::move(rect));
 
 	this->event_key_down_d = event_manager->key_down().subscribe( Mylib::Event::make_callback_object<MyGlib::Event::KeyDown::Type>(*this, &Player::event_key_down_callback) );

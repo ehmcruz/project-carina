@@ -22,6 +22,7 @@ World::World ()
 {
 	auto rect = make_unique<Rect2DRenderer>(Vector(1.0f, 1.0f), Colors::red);
 	rect->set_translation(5.0f, 5.0f);
+	rect->set_angular_velocity(Mylib::Math::degrees_to_radians(30.0f));
 	this->add_child(std::move(rect));
 
 	auto tile_map = make_unique<TileMap>(0, 3, 3, Vector(1, 1));
@@ -48,7 +49,8 @@ MyGlib::Graphics::RenderArgs2D World::setup_render_args ()
 		.world_end = Vector(10, 10),
 		.force_camera_inside_world = true,
 		.world_camera_focus = Vector(0, 0),
-		.world_screen_width = 40
+		.world_screen_width = 40,
+		.invert_y_axis = false
 		};
 }
 

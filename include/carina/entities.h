@@ -73,14 +73,14 @@ enum class Direction : uint32_t {
 inline constexpr Vector2 get_direction_vector (const Direction direction) noexcept
 {
 	static constexpr std::array<Vector2, 8> direction_vector = {
-		Vector2(0, 1),      // South
-		Vector2(-1, 1),     // SouthWest
+		Vector2(0, -1),      // South
+		Vector2(-1, -1),     // SouthWest
 		Vector2(-1, 0),     // West
-		Vector2(-1, -1),    // NorthWest
-		Vector2(0, -1),     // North
-		Vector2(1, -1),     // NorthEast
+		Vector2(-1, 1),    // NorthWest
+		Vector2(0, 1),     // North
+		Vector2(1, 1),     // NorthEast
 		Vector2(1, 0),      // East
-		Vector2(1, 1)       // SouthEast
+		Vector2(1, -1)       // SouthEast
 	};
 
 	return direction_vector[std::to_underlying(direction)];
