@@ -21,7 +21,7 @@ void main (int argc, char **argv)
 {
 	constexpr float target_dt = 1.0f / 60.0f;
 
-	Main *game = Main::load({
+	MyGlib::Game::Main *game = MyGlib::Game::Main::load({
 		.window_name = "Carina Project",
 		.window_width_px = 1920 / 2,
 		.window_height_px = 1080 / 2,
@@ -40,7 +40,7 @@ void main (int argc, char **argv)
 	
 	game->run();
 
-	Main::unload();
+	MyGlib::Game::Main::unload();
 }
 
 // ---------------------------------------------------

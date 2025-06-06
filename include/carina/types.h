@@ -40,7 +40,10 @@ using MyGlib::Graphics::TextureRenderOptions;
 using Colors = MyGlib::Graphics::Colors;
 using AudioDescriptor = MyGlib::Audio::Descriptor;
 
-using namespace MyGlib::Game;
+using MyGlib::Game::Scene2D;
+using MyGlib::Game::Rect2DRenderer;
+using MyGlib::Game::unique_ptr;
+using MyGlib::Game::TileMap;
 
 using Line = Mylib::Math::Line<float, 2>;
 

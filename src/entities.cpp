@@ -17,7 +17,7 @@ namespace Game
 // ---------------------------------------------------
 
 Player::Player (World *world_, const Point& position_)
-	: Character(0, Vector::zero())
+	: Character(EntitySubType::Player)
 {
 	this->set_translation(position_);
 	unique_ptr<Rect2DRenderer> rect = make_unique<Rect2DRenderer>(Vector(1.0f, 1.0f), Colors::green);
