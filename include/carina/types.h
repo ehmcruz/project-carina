@@ -44,6 +44,7 @@ using MyGlib::Game::Scene2D;
 using MyGlib::Game::Rect2DRenderer;
 using MyGlib::Game::unique_ptr;
 using MyGlib::Game::TileMap;
+using MyGlib::Game::UpdateInterface;
 
 using Line = Mylib::Math::Line<float, 2>;
 
