@@ -24,6 +24,8 @@ static void load_textures ()
 
 	tree_00 = renderer->load_texture("assets/tree_00.png");
 
+	MyGlib::Game::preload_textures_from_tmx_file(Texture::tilemap_fname_forest);
+
 	renderer->end_texture_loading();
 }
 

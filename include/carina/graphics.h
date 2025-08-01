@@ -22,6 +22,8 @@ namespace Texture
 	inline TextureDescriptor grass;
 	inline TextureDescriptor water;
 	inline TextureDescriptor tree_00;
+
+	inline const char tilemap_fname_forest[] = "assets/tiled/forest.tmx";
 }
 
 // ---------------------------------------------------
