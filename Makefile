@@ -10,7 +10,10 @@ BIN = carina
 MYLIB = ../my-lib
 MYGLIB = ../my-game-lib
 
-CPPFLAGS = -std=c++23 -Wall -g -I$(MYLIB)/include -I$(MYGLIB)/include -I./include -DMYGLIB_FP_TYPE=float
+# https://github.com/zeux/pugixml
+PUGIXML = ../../git-others/pugixml/src
+
+CPPFLAGS = -std=c++23 -Wall -g -I$(MYLIB)/include -I$(MYGLIB)/include -I./include -DMYGLIB_FP_TYPE=float -I$(PUGIXML)
 LDFLAGS = -std=c++23
 
 # ----------------------------------
@@ -56,6 +59,9 @@ HEADERS += $(wildcard $(MYGLIB)/include/my-game-lib/opengl/*.h)
 
 SRCS += $(wildcard $(MYGLIB)/src/game/*.cpp)
 HEADERS += $(wildcard $(MYGLIB)/include/my-game-lib/game/*.h)
+
+SRCS += $(PUGIXML)/pugixml.cpp
+HEADERS += $(wildcard $(PUGIXML)/*.hpp)
 
 OBJS := $(patsubst %.cpp,%.o,$(SRCS)) $(MYLIB_OBJS)
 

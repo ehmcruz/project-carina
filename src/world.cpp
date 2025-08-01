@@ -32,6 +32,10 @@ World::World ()
 	tile_map->set(1, 1, Texture::tree_00);
 	this->add_child(std::move(tile_map));
 
+	auto tile_map2 = make_unique<TileMap>("assets/tiled/forest.tmx", Vector(1, 1));
+	tile_map2->set_translation(-3.0f, -3.0f);
+	this->add_child(std::move(tile_map2));
+
 	auto player = make_unique<Player>(this, Point(0.0f, 0.0f));
 	this->add_child(std::move(player));
 }
