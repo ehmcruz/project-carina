@@ -92,8 +92,9 @@ class DynamicEntity2D : public MyGlib::Game::DynamicEntity2D
 {
 public:
 	DynamicEntity2D (const EntitySubType subtype_)
-		: MyGlib::Game::DynamicEntity2D(static_cast<MyGlib::Game::DynamicEntity2D::UserData>(subtype_))
+		: MyGlib::Game::DynamicEntity2D()
 	{
+		this->user_data = static_cast<uint64_t>(subtype_);
 	}
 
 	EntitySubType get_subtype () const noexcept
